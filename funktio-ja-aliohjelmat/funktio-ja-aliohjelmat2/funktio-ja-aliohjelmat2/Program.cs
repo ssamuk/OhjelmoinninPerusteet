@@ -10,19 +10,22 @@ namespace funktio_ja_aliohjelmat2
             int i = int.Parse(Console.ReadLine());
             Console.WriteLine("Toinen: ");
             int n = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Vastaus: Luku {minimi(i, n)} on pienempi kuin toinen annetuista luvuista.");
+            Console.WriteLine(minimi(i, n));
         }
-        static int minimi(int i, int n)
+        static string minimi(int i, int n)
         {
+            string lause = "";
             if (i < n)
             {
-                
-                return i;
+                Console.WriteLine($"Luku {i} on pienempi kuin luku {n}.");
             }
             else
             {
-                return n;
+                Console.WriteLine($"Luku {n} on pienempi kuin luku {i}.");
             }
+            return lause;
         }
     }
 }
+
+

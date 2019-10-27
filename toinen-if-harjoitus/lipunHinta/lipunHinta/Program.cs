@@ -7,7 +7,7 @@ namespace lipunHinta
         static void Main(string[] args)
         {
 
-            double lipunHinta = 16;
+            int lipunHinta = 16;
             int ika;
             
             Console.WriteLine("Kuinka vanha olet?");
