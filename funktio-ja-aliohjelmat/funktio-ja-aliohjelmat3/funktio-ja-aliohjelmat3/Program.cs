@@ -14,29 +14,26 @@ namespace funktiojaaliohjelmat3
 
         static int numberFromRange(int lowerBound, int upperBound)
         {
-
-            
+            bool isNumb = false;
             int inputNumb = 0;
-            int ret = 0;
-
 
             do
             {
 
                 Console.Write("Give a random number between numbers 1 and 100 then press enter: ");
-                inputNumb = int.Parse(Console.ReadLine());
+                isNumb = int.TryParse(Console.ReadLine(),out inputNumb);
 
                 if (inputNumb >= lowerBound && inputNumb <= upperBound)
                 {
-                    return inputNumb;
+                    break;
                 }
                 else
                 {
                     Console.WriteLine("Error, try again.");
-                    
+
                 }
-            } while (inputNumb < lowerBound || inputNumb > upperBound);
-            return inputNumb;
+            } while (isNumb == false && inputNumb < lowerBound || inputNumb > upperBound);
+             return inputNumb;
         }
         
         
