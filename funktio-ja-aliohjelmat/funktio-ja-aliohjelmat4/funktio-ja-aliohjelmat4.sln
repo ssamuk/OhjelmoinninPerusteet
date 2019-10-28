@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "funktio-ja-aliohjelmat4", "funktio-ja-aliohjelmat4\funktio-ja-aliohjelmat4.csproj", "{455631F3-9296-4629-801D-7AA5CD6F9E49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{455631F3-9296-4629-801D-7AA5CD6F9E49}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{455631F3-9296-4629-801D-7AA5CD6F9E49}.Debug|anycpu.Build.0 = Debug|anycpu
+		{455631F3-9296-4629-801D-7AA5CD6F9E49}.Release|anycpu.ActiveCfg = Release|anycpu
+		{455631F3-9296-4629-801D-7AA5CD6F9E49}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
