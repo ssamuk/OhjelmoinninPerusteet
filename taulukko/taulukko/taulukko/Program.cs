@@ -6,7 +6,19 @@ namespace taulukko
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+
+            double[] productPrice = {} ;
+            int[] productAmount;
+            double[] productTotalPrice;
+
+            
+
+
+
+
+
+
         }
     }
 }
