@@ -49,9 +49,9 @@ namespace kertaustehtavat
 
             Console.WriteLine("Now I want you to insert two numbers and ill show you some serious math skills: ");
             Console.Write("First number: ");
-            int numb2 = int.Parse(Console.ReadLine());
-            Console.Write("First number: ");
-            int numb3 = int.Parse(Console.ReadLine());
+            double numb2 = double.Parse(Console.ReadLine());
+            Console.Write("Second number: ");
+            double numb3 = double.Parse(Console.ReadLine());
 
             Console.WriteLine($"\n{numb2} + {numb3} = {numb2 + numb3}");
             Console.WriteLine($"{numb2} - {numb3} = {numb2 - numb3}");
