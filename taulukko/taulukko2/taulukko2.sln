@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "taulukko2", "taulukko2\taulukko2.csproj", "{FC8CC49C-1589-4DA2-A972-8B7C0ECBFE16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC8CC49C-1589-4DA2-A972-8B7C0ECBFE16}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{FC8CC49C-1589-4DA2-A972-8B7C0ECBFE16}.Debug|anycpu.Build.0 = Debug|anycpu
+		{FC8CC49C-1589-4DA2-A972-8B7C0ECBFE16}.Release|anycpu.ActiveCfg = Release|anycpu
+		{FC8CC49C-1589-4DA2-A972-8B7C0ECBFE16}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
