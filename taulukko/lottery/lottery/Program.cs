@@ -6,46 +6,67 @@ namespace lottery
     {
         public static void Main(string[] args)
         {
-            int temp = 0;
-            int n = 0;
-            int[] lottery = new int[8];
-            Random rnd = new Random();
-
-
-            for (int i = 0; i <= 7; i++)
-            {
-                temp = rnd.Next(39);
-                while (lottery. == false)
-                {
-                    lottery[n] = temp;
-                    n++;
-                }
-            }
-            Array.Sort(lottery);
-
-            n = 0;
-            Console.WriteLine($"Loton oikea rivi on: ");
-
-            //Here i have one way for output
-            /*for(int i = 0; i <= 7; i++)
-            {
-                Console.Write($"{lottery[n]}, ");
-                n++;
-            }
-            */
-
-
-            //Here is another way for output, this is something that i learned today.
-            foreach (int value in lottery)
-            {
-                Console.Write($"{ value} ");
-            }
-
-            Console.WriteLine($"\nLisänumero: ");
-            Console.WriteLine($"Tuplausnumero: ");
-
+            int[] lotto = new int[40];
+            intro();
+            rndLottoNumbs(ref lotto, 7, 1);
+            rndLottoNumbs(ref lotto, 1, 2);
+            printLottoNumbs(lotto);
 
 
         }
+
+        static void intro()
+        {
+            Console.WriteLine("This program gives you 7 random numbers" +
+                " for lotto + extra and double number.\n");
+            Console.WriteLine("Press any key to continue!");
+            Console.ReadKey();
+        }
+
+        static void rndLottoNumbs(ref int[] arrlotto, int count, int value)
+        {
+
+            Random rnd = new Random();
+            for (int i = 0; i < count; i++)
+            {
+                int rndnumb = rnd.Next(arrlotto.Length);
+                if (arrlotto[rndnumb] == 0)
+                {
+                    arrlotto[rndnumb] = value;
+                }
+                else
+                    i--;
+            }
+
+        }
+
+        static void printLottoNumbs(int[] arrlotto)
+        {
+            Random rnd = new Random();
+            Console.WriteLine("\n\nTodays's lotto numbers are following:");
+            for (int i = 0; i < arrlotto.Length; i++)
+            {
+                
+                if (arrlotto[i] == 1)
+                {
+                    Console.Write($"{i +1} ");
+                }
+            }
+
+            Console.WriteLine("\n\nExtra number is: ");
+            for(int i = 0; i < arrlotto.Length; i++)
+                if (arrlotto[i] == 2)
+            {
+                Console.WriteLine($"{i} ");
+            }
+
+            Console.WriteLine($"\nDouble number is:\n{rnd.Next(arrlotto.Length)}");
+        }
+
+
+
+
+
+
     }
 }
