@@ -21,6 +21,7 @@ namespace taulukko2
             int[] arrT_3 = new int[10];
             generateRandomNumbsForThreeArrays(ref arrT_1, ref arrT_2, ref arrT_3);
             printAllThreeArrays(arrT_1, arrT_2, arrT_3);
+            Console.ReadKey();
         }
         //Task1 functions
         static void getNumbs(ref int[] numbArray, int lowest, int highest)
@@ -79,7 +80,7 @@ namespace taulukko2
         static void printNumbs2(int[,] numbArray2)
         {
             Console.WriteLine("\n\nHere is task2\n");
-            Console.WriteLine("[X, Y] = Arvo");
+            Console.WriteLine("[X, Y ] = Arvo");
             for (int i = 0; i < numbArray2.GetLength(0); i++)
             {
                 for (int j = 0; j < numbArray2.GetLength(1); j++)
@@ -140,26 +141,26 @@ namespace taulukko2
                 }
 
             }
-
+            Console.Write("       ");
             for (int i = 1; i < 11; i++)
             {
-                Console.Write($"{i:d2}  ");
+                Console.Write($"{i:d2} ");
             }
-            
-                Console.Write($"\nArray1 ");
+            Console.WriteLine("\n       -----------------------------");
+                Console.Write($"Array1 ");
                 for (int i = 0; i < arrT_1.Length; i++)
                 {
-                    Console.Write($"{arrT_1[i]} ");
+                    Console.Write($"{arrT_1[i]:d2} ");
                 }
                 Console.Write($"\nArray2 ");
                 for (int i = 0; i < arrT_2.Length; i++)
                 {
-                    Console.Write($"{arrT_2[i]} ");
+                    Console.Write($"{arrT_2[i]:d2} ");
                 }
                 Console.Write($"\nArray3 ");
                 for (int i = 0; i < arrT_3.Length; i++)
                 {
-                    Console.Write($"{arrT_3[i]} ");
+                    Console.Write($"{arrT_3[i]:d2} ");
                 }
 
 
