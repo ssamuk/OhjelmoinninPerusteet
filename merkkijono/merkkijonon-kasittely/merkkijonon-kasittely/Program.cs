@@ -7,28 +7,59 @@ namespace merkkijononkasittely
         public static void Main(string[] args)
         {
             //task1
-            string lause = "Hello World!";
-            int i = lause.Length;
+            string str = "Hello World!";
+            int i = str.Length;
             Console.WriteLine($"Syötteessä on {i} merkkiä.");
-
+            //Console.WriteLine(str[12]); 
 
             //task2
-            string lause2 = "Hello World!";
-            Console.WriteLine(lause2.Replace("e", "€"));
+            string str2 = "Hello World!";
+            Console.WriteLine(str2.Replace("e", "€"));
 
-
+            #region
             //task3
-            string lause3 = "Hello World!";
-            int count2 = 0;
-            for(int i2 = 0; i2 < lause3.Length; i2++)
+            string str3 = "Hello World!";
+            int n2 = 0;
+            for (int n = 0; n < str3.Length; n++)
             {
-                if( == l)
+                if (str3[n] == 'l')
                 {
-                    count2++;
+                    n2++;
                 }
             }
+            Console.WriteLine($"L kirjaimia oli {n2}");
+            #endregion
 
 
+
+            //task4
+
+            Console.WriteLine("\n\nSyötäppä lause ni katotaan onko se palintromi");
+            string strPalintromi = Console.ReadLine();
+            int i4 = 0;
+            int i5 = strPalintromi.Length-1;
+            bool check = true;
+
+            for (int n55 = 0; n55 < strPalintromi.Length - 1; n55++)
+            {
+               
+                    if (strPalintromi[i4] == strPalintromi[i5])
+                    {
+                        i4++;
+                        i5--;
+                    }
+                    else
+                        check = false;
+
+                    //break;
+                
+            }
+            if (check == true)
+            {
+                Console.WriteLine("Sehän taisi olla palintromi!");
+            }
+            else
+            Console.WriteLine("Ei tainnut olla");
         }
     }
 }
