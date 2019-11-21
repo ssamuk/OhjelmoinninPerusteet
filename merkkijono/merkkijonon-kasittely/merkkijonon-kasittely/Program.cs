@@ -37,6 +37,7 @@ namespace merkkijononkasittely
 
             Console.WriteLine("\n\nSyötäppä lause ni katotaan onko se palintromi");
             string strPalintromi = Console.ReadLine();
+            strPalintromi.Replace(" ", "");
             int i4 = 0;
             int i5 = strPalintromi.Length-1;
             bool check = true;
@@ -57,6 +58,7 @@ namespace merkkijononkasittely
                 Console.WriteLine($"Your input '{strPalintromi}' is palindromic.");
             }
             else
+                strPalintromi = strPalintromi.ToUpper();
             Console.WriteLine($"Your input '{strPalintromi}' was not palindromic");
         }
     }
