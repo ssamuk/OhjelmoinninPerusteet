@@ -6,6 +6,7 @@ namespace merkkijononkasittely
     {
         public static void Main(string[] args)
         {
+            #region
             //task1
             string str = "Hello World!";
             int i = str.Length;
@@ -16,7 +17,7 @@ namespace merkkijononkasittely
             string str2 = "Hello World!";
             Console.WriteLine(str2.Replace("e", "€"));
 
-            #region
+           
             //task3
             string str3 = "Hello World!";
             int n2 = 0;
@@ -50,16 +51,13 @@ namespace merkkijononkasittely
                     }
                     else
                         check = false;
-
-                    //break;
-                
             }
             if (check == true)
             {
-                Console.WriteLine("Sehän taisi olla palintromi!");
+                Console.WriteLine($"Your input '{strPalintromi}' is palindromic.");
             }
             else
-            Console.WriteLine("Ei tainnut olla");
+            Console.WriteLine($"Your input '{strPalintromi}' was not palindromic");
         }
     }
 }
