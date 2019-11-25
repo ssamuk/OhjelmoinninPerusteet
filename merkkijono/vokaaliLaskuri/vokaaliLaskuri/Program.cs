@@ -27,10 +27,6 @@ namespace vokaaliLaskuri
 
             Console.WriteLine($"Your input '{userInput}' has {howManyVocals} vocals!");
 
-
-            
-
-
         }
         static void intro()
         {
