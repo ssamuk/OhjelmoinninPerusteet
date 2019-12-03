@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBAN-Check", "BBAN-Check\BBAN-Check.csproj", "{77FC7F1D-B539-4811-B757-4CC0986F6C71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Debug|anycpu.Build.0 = Debug|anycpu
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Release|anycpu.ActiveCfg = Release|anycpu
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal
