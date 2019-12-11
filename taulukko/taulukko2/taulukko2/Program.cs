@@ -108,8 +108,8 @@ namespace taulukko2
                 int rndNumb2 = rnd.Next(50);
                 arrT_2[i] = rndNumb2;
 
-                int rndNumb3 = rnd.Next(50);
-                arrT_3[i] = rndNumb3;
+                //int rndNumb3 = rnd.Next(50);
+                //arrT_3[i] = rndNumb3;
             }
         }
         static void printAllThreeArrays(int[] arrT_1, int[] arrT_2, int[] arrT_3)
@@ -121,24 +121,24 @@ namespace taulukko2
                 tempArray[1] = arrT_2[i];
                 tempArray[2] = arrT_3[i];
 
-                if (tempArray[0] < tempArray[1] && tempArray[2] < tempArray[1])
+                if (tempArray[0] < tempArray[1]) //&& tempArray[2] < tempArray[1])
                 {
                     arrT_1[i] = tempArray[0];
-                    arrT_2[i] = tempArray[2];
+                    arrT_2[i] = tempArray[1];
                     arrT_3[i] = tempArray[1];
                 }
-                else if (tempArray[1] < tempArray[0] && tempArray[2] < tempArray[0])
+                else if (tempArray[1] < tempArray[0])// && tempArray[2] < tempArray[0])
                 {
-                    arrT_1[i] = tempArray[1];
-                    arrT_2[i] = tempArray[2];
+                    arrT_1[i] = tempArray[0];
+                    arrT_2[i] = tempArray[1];
                     arrT_3[i] = tempArray[0];
                 }
-                else  if (tempArray[0] < tempArray[2] && tempArray[1] < tempArray[2])
-                {
-                    arrT_1[i] = tempArray[1];
-                    arrT_2[i] = tempArray[0];
-                    arrT_3[i] = tempArray[2];
-                }
+               // else  if (tempArray[0] < tempArray[2] && tempArray[1] < tempArray[2])
+               // {
+               //     arrT_1[i] = tempArray[1];
+              //      arrT_2[i] = tempArray[0];
+              //     arrT_3[i] = tempArray[2];
+               // }
 
             }
             Console.Write("       ");
