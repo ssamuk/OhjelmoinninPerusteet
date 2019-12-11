@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBAN-Check", "BBAN-Check\BBAN-Check.csproj", "{77FC7F1D-B539-4811-B757-4CC0986F6C71}"
 EndProject
 Global
@@ -9,9 +10,15 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Debug|anycpu.Build.0 = Debug|anycpu
-		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Release|anycpu.ActiveCfg = Release|anycpu
-		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Release|anycpu.Build.0 = Release|anycpu
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{77FC7F1D-B539-4811-B757-4CC0986F6C71}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95FB99F3-82D8-4178-9F41-C359A6061869}
 	EndGlobalSection
 EndGlobal
