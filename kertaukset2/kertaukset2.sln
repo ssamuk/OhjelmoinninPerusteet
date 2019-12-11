@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kertaukset2", "kertaukset2\kertaukset2.csproj", "{9EAB180A-0CF2-4879-A6F4-43841B4FB402}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EAB180A-0CF2-4879-A6F4-43841B4FB402}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{9EAB180A-0CF2-4879-A6F4-43841B4FB402}.Debug|anycpu.Build.0 = Debug|anycpu
+		{9EAB180A-0CF2-4879-A6F4-43841B4FB402}.Release|anycpu.ActiveCfg = Release|anycpu
+		{9EAB180A-0CF2-4879-A6F4-43841B4FB402}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal

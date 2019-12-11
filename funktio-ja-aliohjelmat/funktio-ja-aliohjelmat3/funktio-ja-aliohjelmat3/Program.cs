@@ -19,8 +19,7 @@ namespace funktiojaaliohjelmat3
 
             do
             {
-
-                Console.Write("Give a random number between numbers 1 and 100 then press enter: ");
+                Console.Write($"Give a random number between numbers {lowerBound} and {upperBound} then press enter: ");
                 isNumb = int.TryParse(Console.ReadLine(),out inputNumb);
 
                 if (inputNumb >= lowerBound && inputNumb <= upperBound)
@@ -30,9 +29,10 @@ namespace funktiojaaliohjelmat3
                 else
                 {
                     Console.WriteLine("Error, try again.");
+                    isNumb = false;
 
                 }
-            } while (isNumb == false && inputNumb < lowerBound || inputNumb > upperBound);
+            } while (isNumb == false && inputNumb < lowerBound || isNumb == false && inputNumb > upperBound);
              return inputNumb;
         }
         

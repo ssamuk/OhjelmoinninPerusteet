@@ -32,7 +32,7 @@ namespace taulukko
 
 
             double sum = 0;
-            int n = 0;              // n toimii alkiona
+            int n = 0;              //n works as index
             int[] iT = new int[100];
             Random rnd = new Random();
 
