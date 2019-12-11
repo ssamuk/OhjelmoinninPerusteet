@@ -133,12 +133,12 @@ namespace taulukko2
                     arrT_2[i] = tempArray[1];
                     arrT_3[i] = tempArray[0];
                 }
-               // else  if (tempArray[0] < tempArray[2] && tempArray[1] < tempArray[2])
-               // {
-               //     arrT_1[i] = tempArray[1];
-              //      arrT_2[i] = tempArray[0];
-              //     arrT_3[i] = tempArray[2];
-               // }
+                // else  if (tempArray[0] < tempArray[2] && tempArray[1] < tempArray[2])
+                // {
+                //     arrT_1[i] = tempArray[1];
+                //      arrT_2[i] = tempArray[0];
+                //     arrT_3[i] = tempArray[2];
+                // }
 
             }
             Console.Write("       ");
