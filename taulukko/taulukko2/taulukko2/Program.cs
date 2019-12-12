@@ -94,7 +94,7 @@ namespace taulukko2
 
 
         }
-        
+
         //Task3 functions
         static void generateRandomNumbsForThreeArrays(ref int[] arrT_1, ref int[] arrT_2, ref int[] arrT_3)
         {
@@ -115,7 +115,7 @@ namespace taulukko2
         static void printAllThreeArrays(int[] arrT_1, int[] arrT_2, int[] arrT_3)
         {
             int[] tempArray = new int[3];
-            for(int i = 0; i < arrT_1.Length; i++)
+            for (int i = 0; i < arrT_1.Length; i++)
             {
                 tempArray[0] = arrT_1[i];
                 tempArray[1] = arrT_2[i];
@@ -133,7 +133,7 @@ namespace taulukko2
                     arrT_2[i] = tempArray[2];
                     arrT_3[i] = tempArray[0];
                 }
-                else  if (tempArray[0] < tempArray[2] && tempArray[1] < tempArray[2])
+                else if (tempArray[0] < tempArray[2] && tempArray[1] < tempArray[2])
                 {
                     arrT_1[i] = tempArray[1];
                     arrT_2[i] = tempArray[0];
@@ -147,26 +147,26 @@ namespace taulukko2
                 Console.Write($"{i:d2} ");
             }
             Console.WriteLine("\n       -----------------------------");
-                Console.Write($"Array1 ");
-                for (int i = 0; i < arrT_1.Length; i++)
-                {
-                    Console.Write($"{arrT_1[i]:d2} ");
-                }
-                Console.Write($"\nArray2 ");
-                for (int i = 0; i < arrT_2.Length; i++)
-                {
-                    Console.Write($"{arrT_2[i]:d2} ");
-                }
-                Console.Write($"\nArray3 ");
-                for (int i = 0; i < arrT_3.Length; i++)
-                {
-                    Console.Write($"{arrT_3[i]:d2} ");
-                }
+            Console.Write($"Array1 ");
+            for (int i = 0; i < arrT_1.Length; i++)
+            {
+                Console.Write($"{arrT_1[i]:d2} ");
+            }
+            Console.Write($"\nArray2 ");
+            for (int i = 0; i < arrT_2.Length; i++)
+            {
+                Console.Write($"{arrT_2[i]:d2} ");
+            }
+            Console.Write($"\nArray3 ");
+            for (int i = 0; i < arrT_3.Length; i++)
+            {
+                Console.Write($"{arrT_3[i]:d2} ");
+            }
 
 
 
         }
 
 
-    }  
+    }
 }
