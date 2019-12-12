@@ -18,7 +18,7 @@ namespace BBANCheck
         static void WhichBank(ref string userInput)
         {
             
-            Console.WriteLine(userInput[0]);
+            Console.WriteLine(userInput[1]);
 
 
 
