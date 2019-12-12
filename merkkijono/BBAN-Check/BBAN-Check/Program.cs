@@ -12,9 +12,10 @@ namespace BBANCheck
             int i = 0;
             
             WhichBank(userInput, ref i);
-            machineNumber(ref userInput, i);
+            MachineNumber(ref userInput, i);
             Console.WriteLine(userInput);
-           
+
+            LuhnModul(ref userInput);
             
 
         }
@@ -32,7 +33,8 @@ namespace BBANCheck
             else
                 i = 2;
         }
-        static void machineNumber(ref string userInput, int i)
+        //this method makes BBAN length == 14 by knowledge of previous method
+        static void MachineNumber(ref string userInput, int i)
         {
             
             if (i == 1)
@@ -50,6 +52,24 @@ namespace BBANCheck
                 }
             }
         }
+        static void LuhnModul(ref string userInput)
+        {
+            string systemOutput = "";
+            userInput = userInput.Remove(13);
+            Console.WriteLine($"LuhnModul methodissa ''userinput'' on: {userInput}.");
+            
+            
+
+            for(int i = 12; i >= 0; i--)
+            {
+                Console.WriteLine($"Last digit is {userInput[i] + 1}");
+
+            }
+
+                        
+            
+        }
+
     }
 }
 
