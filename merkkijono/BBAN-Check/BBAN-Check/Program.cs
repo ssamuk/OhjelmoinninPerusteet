@@ -9,7 +9,7 @@ namespace BBANCheck
             Console.Write("Insert BBAN: ");
             string userInput = Console.ReadLine();
             userInput = userInput.Replace("-", "");
-            //Int32.TryParse(Bban, out int j);
+           // Int32.TryParse(userInput, out int j);
             
             WhichBank(ref userInput);
             
@@ -17,13 +17,16 @@ namespace BBANCheck
 
         static void WhichBank(ref string userInput)
         {
-            int j = 0;
-            string pankki = "";
+            string firstCap = "";
+            Console.WriteLine(userInput.IndexOf(userInput));
+            int indexOfjtn = userInput[0];
+            Console.WriteLine(indexOfjtn);
 
-            if (userInput[0] == 1)
-            {
-                pankki = "1";
-            }
+
+
+
+            Console.ReadKey();
+
 
 
         }
