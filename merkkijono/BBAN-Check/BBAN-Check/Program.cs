@@ -17,11 +17,8 @@ namespace BBANCheck
 
         static void WhichBank(ref string userInput)
         {
-            string firstCap = "";
-            Console.WriteLine(userInput.IndexOf(userInput));
-            int indexOfjtn = userInput[0];
-            Console.WriteLine(indexOfjtn);
-
+            
+            Console.WriteLine(userInput[0]);
 
 
 
