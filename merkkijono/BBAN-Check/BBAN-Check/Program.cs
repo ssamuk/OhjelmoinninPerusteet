@@ -69,7 +69,8 @@ namespace BBANCheck
 
             for(int i = 12; i >= 0; i--)
             {
-                Console.WriteLine($"Last digit is {userInput[i] + 1}");
+                int o = userInput[i];
+                Console.WriteLine(o);
 
             }
 
