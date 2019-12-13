@@ -6,8 +6,14 @@ namespace SocialSecurityNumberChecker
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("This program will check whether the inputted Social Security Number is ");
-            Console.WriteLine("a valid Finnish SSN.");
+            /* Console.WriteLine("This program will check whether the inputted Social Security Number is ");
+             Console.WriteLine("a valid Finnish SSN.");*/
+
+            char userChoise;
+            do {
+                Console.Clear();
+                userChoise = UserInterface();
+            } while (userChoise != 'X');
             string userInput = "131052-380T";
             userInput = RemoveSpaces(userInput);
             if (IsValidLength(userInput))
@@ -26,7 +32,17 @@ namespace SocialSecurityNumberChecker
             }
         }
 
-        static char
+        static char UserInterface()
+        {
+            Console.WriteLine("Henkilötunnuksen käsittely.");
+            Console.WriteLine("[T] Tarkista henkilötunnuksen oikeellisuus.");
+            Console.WriteLine("[U] Luo uusi henkilötunnus.");
+            Console.WriteLine("[X] Sulje ohjelma.");
+            Console.WriteLine("Valitse mitä tehdään: ");
+
+            return char.ToUpper(Console.ReadKey().KeyChar);
+
+        }
 
         static bool IsValidDate(string userInput)
         {
