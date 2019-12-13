@@ -69,8 +69,13 @@ namespace BBANCheck
 
             for(int i = 12; i >= 0; i--)
             {
+
+               
+
+
                 string o = userInput[i].ToString();
                 Console.WriteLine(o);
+                
 
             }
 
