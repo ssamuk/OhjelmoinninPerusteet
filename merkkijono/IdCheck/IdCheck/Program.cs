@@ -9,12 +9,37 @@ namespace SocialSecurityNumberChecker
             /* Console.WriteLine("This program will check whether the inputted Social Security Number is ");
              Console.WriteLine("a valid Finnish SSN.");*/
 
+
             char userChoise;
-            do {
-                Console.Clear();
-                userChoise = UserInterface();
+            do
+            {
+                userChoise = UserInterface(); // kutsutaan käyttöliittymä funktiota
+                switch (userChoise)
+                {
+                    case 'T':
+                        SSNChecker(); //kutsutaan sotun tarkastus funktiota
+                        break;
+                    case 'u':
+                        SSNCreator(); // Kutsutaan sotun luontifunkiota
+                        break;
+
+                    case 'X':
+                        break;
+
+                    default:
+                        Console.WriteLine("\nTarkasta mitä painoit! Jatka enterillä.");
+                        Console.ReadLine();
+                        break;
+                }
+
             } while (userChoise != 'X');
-            string userInput = "131052-380T";
+
+           
+        } // END MAIN PROGRAM
+        static void SSNChecker() //function
+        {
+            Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");
+            string userInput = Console.ReadLine();
             userInput = RemoveSpaces(userInput);
             if (IsValidLength(userInput))
             {
@@ -30,7 +55,22 @@ namespace SocialSecurityNumberChecker
             {
                 Console.WriteLine("Please check the inputted SSN. Too many characters.");
             }
+
         }
+
+        static void SSNCreator()
+        {
+            Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");
+            string userInput = Console.ReadLine();
+            userInput = RemoveSpaces(userInput);
+            IsValidLength(userInput, 10);
+            if (IsValidDate(userInput))
+            {
+
+            }
+        }
+
+
 
         static char UserInterface()
         {
@@ -82,14 +122,30 @@ namespace SocialSecurityNumberChecker
             return result;
         }
 
+
+
+
+
         static bool IsValidLength(string userInput)
         {
             return userInput.Length == 11; // returns true if lenght is 11, otherwise returns false
-            //if userInput.Length == 11) ;
-            //    return true;
-            //else
-            //    return false;
+                                           //if userInput.Length == 11) ;
+                                           //    return true;
+                                           //else
+                                           //    return false;
         }
+
+
+
+
+        static bool IsValidLength(string userInput, int length)
+        {
+            return userInput.Length == userInput.Length; 
+        }
+
+
+
+
         static string RemoveSpaces(string userInput) // you could also use ref, but it may cause problems 
                                                      // if there are multiple references within the code
         {
@@ -105,9 +161,11 @@ namespace SocialSecurityNumberChecker
         static int InputParser(string stringParser)
         {
 
-            //string result = stringParser.Substring(0, 6);
-
-            string removed = stringParser.Remove(10, 1); // this removes the last character from the string
+            if (stringParser.Length > 10)
+                string removed = "";
+            {
+                removed = stringParser.Remove(10, 1); // this removes the last character from the string
+            }
             removed = removed.Remove(6, 1); // this removes the 7th character from the string (-, + or x)
             return int.Parse(removed);
         }
@@ -127,12 +185,14 @@ namespace SocialSecurityNumberChecker
             return checkMark[modChecker] == checkUserMark;
         }
 
-        static void PrintResult(bool isValidId)
+            static void PrintResult(bool isValidId)
         {
             if (isValidId)
                 Console.WriteLine("The inputted SSN is valid.");
             else
                 Console.WriteLine("The inputted SSN is incorrect.");
-        }
+            }
     }
+
 }
+
