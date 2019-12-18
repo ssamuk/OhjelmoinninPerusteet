@@ -62,11 +62,14 @@ namespace SocialSecurityNumberChecker
         {
             Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");
             string userInput = Console.ReadLine();
+
             userInput = RemoveSpaces(userInput);
             IsValidLength(userInput, 10);
             if (IsValidDate(userInput))
             {
-
+                int idNumber = InputParser(userInput);
+                char getValidationMark = GetValidID(idNumber);
+                PrintCreatedSSNumner(userInput + getValidationMark);
             }
         }
 
@@ -125,7 +128,12 @@ namespace SocialSecurityNumberChecker
 
 
 
-
+        /// <summary>
+        /// Check is userInput correct length?
+        /// Default Length is 11.
+        /// </summary>
+        /// <param name="userInput"></param>
+        /// <returns></returns>
         static bool IsValidLength(string userInput)
         {
             return userInput.Length == 11; // returns true if lenght is 11, otherwise returns false
@@ -140,7 +148,7 @@ namespace SocialSecurityNumberChecker
 
         static bool IsValidLength(string userInput, int length)
         {
-            return userInput.Length == userInput.Length; 
+            return userInput.Length == length; 
         }
 
 
@@ -160,9 +168,8 @@ namespace SocialSecurityNumberChecker
 
         static int InputParser(string stringParser)
         {
-
+            string removed = stringParser;
             if (stringParser.Length > 10)
-                string removed = "";
             {
                 removed = stringParser.Remove(10, 1); // this removes the last character from the string
             }
@@ -185,13 +192,28 @@ namespace SocialSecurityNumberChecker
             return checkMark[modChecker] == checkUserMark;
         }
 
-            static void PrintResult(bool isValidId)
+
+        static char GetValidID(int idNumber)
+        {
+            string checkMark = "0123456789ABCDEFHJKLMPRSTUVWXY"; // define an array for cross referencing
+            int modChecker = idNumber % 31; // this will divide the given number with 31, mod31
+            return checkMark[modChecker];
+        }
+
+
+
+        static void PrintResult(bool isValidId)
         {
             if (isValidId)
                 Console.WriteLine("The inputted SSN is valid.");
             else
                 Console.WriteLine("The inputted SSN is incorrect.");
-            }
+        }
+
+        static void PrintCreatedSSNumner(string newSSNumber)
+        {
+            Console.WriteLine($"Luotu sotu on: {newSSNumber}");
+        }
     }
 
 }
