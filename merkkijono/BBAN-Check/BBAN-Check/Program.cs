@@ -69,10 +69,16 @@ namespace BBANCheck
             int myInt = int.Parse(userInputValue);
 
 
-            if ( % == 0)
+            /*if (myInt % == 0)
             {
-
+                myInt(a) * 2;
+                a--;
             }
+            else
+            {
+                myInt(a) * 1;
+                a--;
+            }*/
                         
             
         }
