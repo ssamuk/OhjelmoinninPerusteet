@@ -65,11 +65,14 @@ namespace BBANCheck
             userInputValue = userInputValue.Remove(13);
             Console.WriteLine($"LuhnModul methodissa ''userinput'' on: {userInputValue}.");
 
+            int a = userInputValue.Length;
+            int myInt = int.Parse(userInputValue);
 
-            int userInt = int.Parse(userInputValue);
 
-            Console.WriteLine($"Täällä tarkistus {userInt}");
+            if ( % == 0)
+            {
 
+            }
                         
             
         }
