@@ -10,12 +10,12 @@ namespace BBANCheck
             string userInput = Console.ReadLine();
             userInput = userInput.Replace("-", "");
             int i = 0;
-            
+            string luhnStr = "";
             WhichBank(userInput, ref i);
             MachineNumber(ref userInput, i); // This function adds zeros to user input until its length is 14
             Console.WriteLine(userInput);
 
-            LuhnModul(ref userInput);
+            LuhnModul(userInput, ref luhnStr);
             
 
         }
@@ -59,25 +59,16 @@ namespace BBANCheck
                 }
             }
         }
-        static void LuhnModul(ref string userInput)
+        static void LuhnModul(string userInputValue, ref string luhnStrValue)
         {
-            string systemOutput = "";
-            userInput = userInput.Remove(13);
-            Console.WriteLine($"LuhnModul methodissa ''userinput'' on: {userInput}.");
             
-           
-
-            for(int i = 12; i >= 0; i--)
-            {
-
-               
+            userInputValue = userInputValue.Remove(13);
+            Console.WriteLine($"LuhnModul methodissa ''userinput'' on: {userInputValue}.");
 
 
-                string o = userInput[i].ToString();
-                Console.WriteLine(o);
-                
+            int userInt = int.Parse(userInputValue);
 
-            }
+            Console.WriteLine($"Täällä tarkistus {userInt}");
 
                         
             
