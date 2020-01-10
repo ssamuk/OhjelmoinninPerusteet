@@ -36,6 +36,7 @@ namespace SocialSecurityNumberChecker
 
            
         } // END MAIN PROGRAM
+
         static void SSNChecker() //function
         {
             Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");

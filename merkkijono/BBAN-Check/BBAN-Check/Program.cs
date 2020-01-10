@@ -12,7 +12,7 @@ namespace BBANCheck
             int i = 0;
             
             WhichBank(userInput, ref i);
-            MachineNumber(ref userInput, i);
+            MachineNumber(ref userInput, i); // This function adds zeros to user input until its length is 14
             Console.WriteLine(userInput);
 
             LuhnModul(ref userInput);
@@ -38,7 +38,7 @@ namespace BBANCheck
         {
             
 
-            Console.WriteLine(userInput[1]);
+            Console.WriteLine(userInput[i]);
 
 
 
