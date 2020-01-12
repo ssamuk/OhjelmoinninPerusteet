@@ -13,42 +13,37 @@ namespace BBANCheck
             WhichBank(userInput, ref i);
             MachineNumber(ref userInput, i); // This function adds zeros to user input until its length is 14
             if (CheckLuhn(userInput))
-                Console.WriteLine("This is a valid card");
+                Console.WriteLine("This is a valid BBAN");
             else
-                Console.WriteLine("This is not a valid card");
-
-
+                Console.WriteLine("This is not a valid BBAN");
         }// MAIN ENDS!
         //this function defines where we put zeros in 'userinput',
-        //so this is raw/lazy way to define the bank
+        //so this is easy way to define bank
         static void WhichBank(string userInput, ref int i)
         {
             char firstNumb = userInput[0];
-            Console.WriteLine(firstNumb);
-
             if (firstNumb == '4' || firstNumb == '5' || firstNumb == '7')
             {
-                i = 1;
+                i = 1;  //SP, POP or OP 
             }
             else
-                i = 2;
+                i = 2;  //other banks
         }
-        //this function makes BBAN length 14 by knowledge of "WhichBank" function
+        //this function makes BBAN length 14 by adding zeros by knowledge of "WhichBank" function
         static void MachineNumber(ref string userInput, int i)
         {
-            Console.WriteLine(userInput[i]);
             if (i == 1)
             {
                 while(userInput.Length < 14)
                 {
-                    userInput = userInput.Insert(7, "0");
+                    userInput = userInput.Insert(7, "0");   //SP, POP or OP rule
                 }
             }
             else
             {
                 while(userInput.Length < 14)
                 {
-                    userInput = userInput.Insert(6,"0");
+                    userInput = userInput.Insert(6,"0");    //other banks rule
                 }
             }
         }
@@ -65,9 +60,7 @@ namespace BBANCheck
                 if (isSecond == true)
                     d = d * 2;
 
-                // We add two digits to handle 
-                // cases that make two digits  
-                // after doubling 
+                // We add two digits to handle cases that make two digits after doubling               
                 nSum += d / 10;
                 nSum += d % 10;
 
@@ -75,49 +68,5 @@ namespace BBANCheck
             }
             return (nSum % 10 == 0);
         }
-
-
-
     }
-
 }
-
-
-
-
-
-/*
- *
- * 
- *
-1 = Nordea Pankki(Nordea)
-2 = Nordea Pankki(Nordea)
-31 = Handelsbanken
-33 = Skandinaviska Enskilda Banken(SEB)
-34 = Danske Bank
-36 = Tapiola Pankki
-37 = DnB NOR Bank ASA(DnB NOR)
-38 = Swedbank
-39 = S - Pankki
-4 = Aktia Pankki, Säästöpankit(Sp) ja Paikallisosuuspankit(POP)
-5 = OP - Pohjola - ryhmä(Osuuspankit(OP), Helsingin OP Pankki ja Pohjola Pankki)
-6 = Ålandsbanken ÅAB)
-8 = Sampo Pankki
-*
-- IndexOf
-- Insert
-- Length
-- Replace
-- Remove
-- Split
-- Substring
-- Trim
-- ToUpper
-- ToLower
-*
-*
-*
-* 
-*/
-
-
