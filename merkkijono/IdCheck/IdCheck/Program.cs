@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace SocialSecurityNumberChecker
 {
     class Program
@@ -16,7 +17,7 @@ namespace SocialSecurityNumberChecker
                     case 'T':
                         SSNChecker(); //kutsutaan sotun tarkastus funktiota
                         break;
-                    case 'u':
+                    case 'U':
                         SSNCreator(); // Kutsutaan sotun luontifunkiota
                         break;
 
@@ -38,9 +39,10 @@ namespace SocialSecurityNumberChecker
             Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");
             string userInput = Console.ReadLine();
             userInput = RemoveSpaces(userInput);
+
             if (IsValidLength(userInput))
             {
-                if (IsValidDate(userInput)) // already contains error messages so no need for else 
+                if (IsValidDate(userInput))
                 {
                     int idNumber = InputParser(userInput);
                     char getLastChar = GetUserInputCheckMark(userInput);
@@ -50,24 +52,30 @@ namespace SocialSecurityNumberChecker
             }
             else
             {
-                Console.WriteLine("Please check the inputted SSN.");
-
+                Console.WriteLine("Check input!");
             }
+                
+            
 
         }
 
         static void SSNCreator()
         {
-            Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");
+            Console.Write("\nAnna syntymäaika: [PPKKVV-XXX]: ");
             string userInput = Console.ReadLine();
 
             userInput = RemoveSpaces(userInput);
-            IsValidLength(userInput, 10);
-            if (IsValidDate(userInput))
+            if(IsValidLength(userInput, 10))
             {
-                int idNumber = InputParser(userInput);
-                char getValidationMark = GetValidID(idNumber);
-                PrintCreatedSSNumner(userInput + getValidationMark);
+
+
+                if (IsValidDate(userInput))
+                {
+                    int idNumber = InputParser(userInput);
+                    char getValidationMark = GetValidID(idNumber);
+                    string sex = GiveSex(userInput);
+                    PrintCreatedSSNumner(userInput + getValidationMark + sex);
+                }
             }
         }
 
@@ -89,6 +97,7 @@ namespace SocialSecurityNumberChecker
         {
             //131052-308T
             bool result = false;
+
             string day = userInput.Substring(0, 2);
             string month = userInput.Substring(2, 2);
             string year = userInput.Substring(4, 2);
@@ -198,6 +207,21 @@ namespace SocialSecurityNumberChecker
             return checkMark[modChecker];
         }
 
+        static string GiveSex(string input)
+        {
+            input = input.Substring(7);
+            int sexNum = int.Parse(input);
+            string sex;
+            if (sexNum % 2 == 0)
+            {
+                sex = "female";
+            }
+            else
+            {
+                sex = "male";
+            }
+            return sex;
+        }
 
 
         static void PrintResult(bool isValidId)
