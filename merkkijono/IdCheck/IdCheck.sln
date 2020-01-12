@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdCheck", "IdCheck\IdCheck.csproj", "{21BD3384-7B9E-4476-AA14-05859EF9B60B}"
 EndProject
 Global
@@ -9,9 +10,15 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Debug|anycpu.Build.0 = Debug|anycpu
-		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Release|anycpu.ActiveCfg = Release|anycpu
-		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Release|anycpu.Build.0 = Release|anycpu
+		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{21BD3384-7B9E-4476-AA14-05859EF9B60B}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7F23FE6-FCEB-4637-A345-5FB9331D0D13}
 	EndGlobalSection
 EndGlobal

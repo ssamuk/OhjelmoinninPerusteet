@@ -10,7 +10,7 @@ namespace SocialSecurityNumberChecker
             char userChoise;
             do
             {
-                //Console.Clear();
+               // Console.Clear();
                 userChoise = UserInterface(); // kutsutaan käyttöliittymä funktiota
                 switch (userChoise)
                 {
@@ -74,7 +74,7 @@ namespace SocialSecurityNumberChecker
                     int idNumber = InputParser(userInput);
                     char getValidationMark = GetValidID(idNumber);
                     string sex = GiveSex(userInput);
-                    PrintCreatedSSNumner(userInput + getValidationMark + sex);
+                    PrintCreatedSSNumber($"{userInput}{getValidationMark} {sex}");
                 }
             }
         }
@@ -123,6 +123,7 @@ namespace SocialSecurityNumberChecker
                 // using Datetime function you can easily calculate whether the inputted date is valid or not
                 // DateTime includes checks for correct day, month, year and also includes leap year
                 DateTime birthDate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+                result = true;
             }
             catch (Exception e)
             {
@@ -232,7 +233,7 @@ namespace SocialSecurityNumberChecker
                 Console.WriteLine("The inputted SSN is incorrect.");
         }
 
-        static void PrintCreatedSSNumner(string newSSNumber)
+        static void PrintCreatedSSNumber(string newSSNumber)
         {
             Console.WriteLine($"Luotu sotu on: {newSSNumber}");
         }
