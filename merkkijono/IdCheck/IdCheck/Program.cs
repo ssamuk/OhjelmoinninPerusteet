@@ -6,13 +6,10 @@ namespace SocialSecurityNumberChecker
     {
         static void Main(string[] args)
         {
-            /* Console.WriteLine("This program will check whether the inputted Social Security Number is ");
-             Console.WriteLine("a valid Finnish SSN.");*/
-
-
             char userChoise;
             do
             {
+                //Console.Clear();
                 userChoise = UserInterface(); // kutsutaan käyttöliittymä funktiota
                 switch (userChoise)
                 {
@@ -31,7 +28,6 @@ namespace SocialSecurityNumberChecker
                         Console.ReadLine();
                         break;
                 }
-
             } while (userChoise != 'X');
 
            
@@ -54,7 +50,8 @@ namespace SocialSecurityNumberChecker
             }
             else
             {
-                Console.WriteLine("Please check the inputted SSN. Too many characters.");
+                Console.WriteLine("Please check the inputted SSN.");
+
             }
 
         }
