@@ -10,16 +10,16 @@ namespace BBANCheck
             string userInput = Console.ReadLine();
             userInput = userInput.Replace("-", "");
             int i = 0;
-            string luhnStr = "";
             WhichBank(userInput, ref i);
             MachineNumber(ref userInput, i); // This function adds zeros to user input until its length is 14
-            Console.WriteLine(userInput);
+            if (CheckLuhn(userInput))
+                Console.WriteLine("This is a valid card");
+            else
+                Console.WriteLine("This is not a valid card");
 
-            LuhnModul(userInput, ref luhnStr);
-            
 
-        }
-        //this method defines where we put zeros in 'userinput',
+        }// MAIN ENDS!
+        //this function defines where we put zeros in 'userinput',
         //so this is raw/lazy way to define the bank
         static void WhichBank(string userInput, ref int i)
         {
@@ -33,17 +33,10 @@ namespace BBANCheck
             else
                 i = 2;
         }
-        //this method makes BBAN length == 14 by knowledge of previous method
+        //this function makes BBAN length 14 by knowledge of "WhichBank" function
         static void MachineNumber(ref string userInput, int i)
         {
-            
-
             Console.WriteLine(userInput[i]);
-
-
-
-            Console.ReadKey();
-
             if (i == 1)
             {
                 while(userInput.Length < 14)
@@ -59,32 +52,36 @@ namespace BBANCheck
                 }
             }
         }
-        static void LuhnModul(string userInputValue, ref string luhnStrValue)
+        static bool CheckLuhn(string userInputValue)
         {
-            
-            userInputValue = userInputValue.Remove(13);
-            Console.WriteLine($"LuhnModul methodissa ''userinput'' on: {userInputValue}.");
+            int nDigits = userInputValue.Length;
 
-            int a = userInputValue.Length;
-            int myInt = int.Parse(userInputValue);
-
-
-            /*if (myInt % == 0)
+            int nSum = 0;
+            bool isSecond = false;
+            for (int i = nDigits - 1; i >= 0; i--)
             {
-                myInt(a) * 2;
-                a--;
+                int d = userInputValue[i] - '0';
+
+                if (isSecond == true)
+                    d = d * 2;
+
+                // We add two digits to handle 
+                // cases that make two digits  
+                // after doubling 
+                nSum += d / 10;
+                nSum += d % 10;
+
+                isSecond = !isSecond;
             }
-            else
-            {
-                myInt(a) * 1;
-                a--;
-            }*/
-                        
-            
+            return (nSum % 10 == 0);
         }
 
+
+
     }
+
 }
+
 
 
 
@@ -122,3 +119,5 @@ namespace BBANCheck
 *
 * 
 */
+
+
