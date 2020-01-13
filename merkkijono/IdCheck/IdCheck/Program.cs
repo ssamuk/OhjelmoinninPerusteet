@@ -10,22 +10,26 @@ namespace SocialSecurityNumberChecker
             char userChoise;
             do
             {
-               // Console.Clear();
+                Console.Clear();
                 userChoise = UserInterface(); // kutsutaan käyttöliittymä funktiota
                 switch (userChoise)
                 {
-                    case 'T':
+                    case 'C':
                         SSNChecker(); //kutsutaan sotun tarkastus funktiota
+                        Console.WriteLine("Press any key to continue!");
+                        Console.ReadKey();
                         break;
-                    case 'U':
+                    case 'N':
                         SSNCreator(); // Kutsutaan sotun luontifunkiota
+                        Console.WriteLine("Press any key to continue!");
+                        Console.ReadKey();
                         break;
 
                     case 'X':
                         break;
 
                     default:
-                        Console.WriteLine("\nTarkasta mitä painoit! Jatka enterillä.");
+                        Console.WriteLine("\nCheck your input and press enter!.");
                         Console.ReadLine();
                         break;
                 }
@@ -36,7 +40,7 @@ namespace SocialSecurityNumberChecker
 
         static void SSNChecker() //function
         {
-            Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");
+            Console.Write("\nInput SSN to check: [PPKKVV-XXXT]: ");
             string userInput = Console.ReadLine();
             userInput = RemoveSpaces(userInput);
 
@@ -52,7 +56,7 @@ namespace SocialSecurityNumberChecker
             }
             else
             {
-                Console.WriteLine("Check input!");
+                Console.WriteLine("Something is wrong, maybe length?");
             }
                 
             
@@ -61,7 +65,7 @@ namespace SocialSecurityNumberChecker
 
         static void SSNCreator()
         {
-            Console.Write("\nAnna syntymäaika: [PPKKVV-XXX]: ");
+            Console.Write("\nInput birth time: [PPKKVV-XXX]: ");
             string userInput = Console.ReadLine();
 
             userInput = RemoveSpaces(userInput);
@@ -77,17 +81,21 @@ namespace SocialSecurityNumberChecker
                     PrintCreatedSSNumber($"{userInput}{getValidationMark} {sex}");
                 }
             }
+            else
+            {
+                Console.WriteLine("Something's wrong try again. Press enter to continue!");
+            }
         }
 
 
 
         static char UserInterface()
         {
-            Console.WriteLine("Henkilötunnuksen käsittely.");
-            Console.WriteLine("[T] Tarkista henkilötunnuksen oikeellisuus.");
-            Console.WriteLine("[U] Luo uusi henkilötunnus.");
-            Console.WriteLine("[X] Sulje ohjelma.");
-            Console.WriteLine("Valitse mitä tehdään: ");
+            Console.WriteLine("SSN handling.");
+            Console.WriteLine("[C] Check SSN.");
+            Console.WriteLine("[N] Create new SSN.");
+            Console.WriteLine("[X] Close program.");
+            Console.WriteLine("Choose what to do: ");
 
             return char.ToUpper(Console.ReadKey().KeyChar);
 
@@ -215,11 +223,11 @@ namespace SocialSecurityNumberChecker
             string sex;
             if (sexNum % 2 == 0)
             {
-                sex = "female";
+                sex = "Female.";
             }
             else
             {
-                sex = "male";
+                sex = "Male.";
             }
             return sex;
         }
@@ -235,7 +243,7 @@ namespace SocialSecurityNumberChecker
 
         static void PrintCreatedSSNumber(string newSSNumber)
         {
-            Console.WriteLine($"Luotu sotu on: {newSSNumber}");
+            Console.WriteLine($"New SSN is: {newSSNumber}");
         }
     }
 
