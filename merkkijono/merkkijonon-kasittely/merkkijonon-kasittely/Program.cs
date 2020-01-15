@@ -6,6 +6,7 @@ namespace merkkijononkasittely
     {
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             #region
             //task1
             string str = "Hello World!";
