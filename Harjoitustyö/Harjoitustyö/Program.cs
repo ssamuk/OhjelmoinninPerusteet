@@ -19,7 +19,17 @@ namespace Harjoitustyö
                 switch (userChoise)
                 {
                     case 'C':
-                        CheckRefNumb();
+                        Console.WriteLine("Input:");
+                        string input = Console.ReadLine();
+                       // CheckRefNumb();
+                        if(CheckReferenceNumb(input) == true)
+                        {
+                            Console.WriteLine($"Your input {input} is valid reference number.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("wrong");
+                        }
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
@@ -44,11 +54,7 @@ namespace Harjoitustyö
                 }
             } while (userChoise != 'X');
 
-            
-
-            
         } // End main program
-
         static char UserInterface()
         {
             Console.WriteLine("-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
@@ -62,19 +68,21 @@ namespace Harjoitustyö
         }
         static void CheckRefNumb()
         {
+            Console.WriteLine("Please insert reference number to check it: ");
+            string userInput = Console.ReadLine();
             int summary = 0;
             char lastNumb;              //this is the last number of userinput which we compare to valmark to check if
             char valMark;               //userinput is valid referencenumber
             int numbLength = 0;
-            Console.WriteLine("Please insert reference number to check it: ");
-            string userInput = Console.ReadLine();
             numbLength = userInput.Length;
             lastNumb = userInput[numbLength - 1];
             userInput = userInput.Remove(numbLength - 1,1);
+
+
             int n = 3;
-            for (int i = userInput.Length -1; i >= 0; i--)
-            {
-                
+            for (int i = userInput.Length -1; i >= 0; i--)  //This loop sums userinput numbers
+            {                                               //from last to first by 731 rule without 
+                                                            //original userinput last number
                 if(n == 3)
                 {
                     summary = summary + int.Parse(userInput[i].ToString()) * 7;
@@ -90,15 +98,60 @@ namespace Harjoitustyö
                     summary = summary + int.Parse(userInput[i].ToString()) * 1;
                     n = 3;
                 }
-
             }
-            Console.WriteLine(summary);
-
-
-
-
+            // Console.WriteLine(summary); this line was to check if summary is right
+            int numbValidator = summary + int.Parse(lastNumb.ToString());
+            if (numbValidator % 10 == 0)
+            {
+                Console.WriteLine($"Your input {userInput}{lastNumb} is correct ref numb");
+            }
+            else
+            {
+                Console.WriteLine("Wrong");
+            }
         }
+        static bool CheckReferenceNumb(string inputValue)
+        {
+            
+            int summary = 0;
+            char lastNumb;                //userinput is valid referencenumber
+            int numbLength = 0;
+            numbLength = inputValue.Length;
+            lastNumb = inputValue[numbLength - 1];
+            inputValue = inputValue.Remove(numbLength - 1, 1);
 
+
+            int n = 3;
+            for (int i = inputValue.Length - 1; i >= 0; i--)  //This loop sums userinput numbers
+            {                                               //from last to first by 731 rule without 
+                                                            //original userinput last number
+                if (n == 3)
+                {
+                    summary = summary + int.Parse(inputValue[i].ToString()) * 7;
+                    n--;
+                }
+                else if (n == 2)
+                {
+                    summary = summary + int.Parse(inputValue[i].ToString()) * 3;
+                    n--;
+                }
+                else if (n == 1)
+                {
+                    summary = summary + int.Parse(inputValue[i].ToString()) * 1;
+                    n = 3;
+                }
+            }
+            // Console.WriteLine(summary); this line was to check if summary is right
+            int numbValidator = summary + int.Parse(lastNumb.ToString());
+            if (numbValidator % 10 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
         /*static void WriteToFile(string path)
