@@ -67,37 +67,32 @@ namespace Harjoitustyö
             char valMark;               //userinput is valid referencenumber
             int numbLength = 0;
             Console.WriteLine("Please insert reference number to check it: ");
-            //int userInput = int.Parse(Console.ReadLine());
             string userInput = Console.ReadLine();
-            Console.WriteLine(userInput);
             numbLength = userInput.Length;
             lastNumb = userInput[numbLength - 1];
             userInput = userInput.Remove(numbLength - 1,1);
-            Console.WriteLine(lastNumb); // these 2 writeline check if program works to this point
-            Console.WriteLine(userInput);
-
-
-            for(int i = userInput.Length-1; i < userInput.Length - 1; i--)
+            int n = 3;
+            for (int i = userInput.Length -1; i >= 0; i--)
             {
-                int n = 3;
+                
                 if(n == 3)
                 {
-                    summary = summary + userInput[i];
+                    summary = summary + int.Parse(userInput[i].ToString()) * 7;
                     n--;
                 }
                 else if( n == 2)
                 {
-                    summary = summary + userInput[i];
+                    summary = summary + int.Parse(userInput[i].ToString()) * 3;
                     n--;
                 }
                 else if(n == 1)
                 {
-                    summary = summary + userInput[i];
+                    summary = summary + int.Parse(userInput[i].ToString()) * 1;
                     n = 3;
                 }
 
             }
-            Console.WriteLine();
+            Console.WriteLine(summary);
 
 
 
