@@ -21,10 +21,11 @@ namespace Harjoitustyö
                     case 'C':
                         Console.WriteLine("Input:");
                         string input = Console.ReadLine();
-                       // CheckRefNumb();
+                        //CheckRefNumb();
                         if(CheckReferenceNumb(input) == true)
                         {
-                            Console.WriteLine($"Your input {input} is valid reference number.");
+                            
+                            Console.WriteLine($"Your input {trimmedRefNumb(input)} is valid reference number.");
                         }
                         else
                         {
@@ -55,6 +56,24 @@ namespace Harjoitustyö
             } while (userChoise != 'X');
 
         } // End main program
+        static string trimmedRefNumb(string stringValue)
+        {
+            string trimmedNumb = "";
+            char[] array1 = stringValue.ToCharArray();
+            Array.Reverse(array1);
+            trimmedNumb = array1.ToString();
+
+            if(stringValue.Length > 5)
+            {
+                trimmedNumb.Insert(4, " ");
+            }
+            else if(stringValue.Length > 10)
+            {
+                trimmedNumb.Insert(4, " ");
+                trimmedNumb.Insert(10, " ");
+            }
+            return trimmedNumb;
+        }
         static char UserInterface()
         {
             Console.WriteLine("-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
