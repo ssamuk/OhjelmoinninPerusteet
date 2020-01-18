@@ -39,11 +39,14 @@ namespace Harjoitustyö
                         Console.ReadKey();
                         break;
                     case 'M':
-
+                        Console.WriteLine("How many: ");
+                        int count = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Base numb?");
+                        string baseNumb = Console.ReadLine();
+                        CreateManyRefNumb(baseNumb, count);
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
-
                     case 'X':
                         break;
 
@@ -55,12 +58,61 @@ namespace Harjoitustyö
             } while (userChoise != 'X');
 
         } // End main program
+        static void CreateManyRefNumb()
+        {
+            Console.WriteLine("How many reference number you want to create? Please input: ");
+            int numbCount = int.Parse(Console.ReadLine());
+            Console.WriteLine("And what is base ref number?");
+            string baseNumb = "";
+            string refNumb = "";
+            for (int i = 0; i < numbCount; i++)
+            {
+                CreateRefNumb();
+            }
+            
+        }
+        static void CreateManyRefNumb(string baseNumbValue, int countValue)
+        {
+            string baseNumb = baseNumbValue;
+            for (int i2 = 0; i2 < countValue; i2++)
+            {
+                int i = 0;
+                if ((CheckReferenceNumb(baseNumb) == true))
+                {
+                    Console.WriteLine($"Your {i2 + 1}. {baseNumb} is reference number");
+                    baseNumb += i;
+                    
+
+                }
+                else if (CheckReferenceNumb(baseNumb) == false)
+                    while (CheckReferenceNumb(baseNumb) == false)
+                    {
+                        if (CheckReferenceNumb(baseNumb + i) == false)
+                        {
+                            
+                            i++;
+                        }
+                        else
+                        {
+                            baseNumb += i;
+                            Console.WriteLine($"Your {i2 + 1}. {baseNumb} is reference number");
+                            baseNumb += i;
+                        }
+                    }
+            }
+        }
+
         static void CreateRefNumb()
         {
             Console.WriteLine("Input:");
             string input = Console.ReadLine();
             int i = 0;
-            while (CheckReferenceNumb(input) == false)
+            if((CheckReferenceNumb(input) == true))
+            {
+                Console.WriteLine($"Your input {input} is allready valid reference number");
+
+            }else if (CheckReferenceNumb(input) == false)
+                while (CheckReferenceNumb(input) == false)
             {
                 if (CheckReferenceNumb(input + i) == false)
                 {
@@ -69,15 +121,11 @@ namespace Harjoitustyö
                 else
                 {
                     input += i;
+                    Console.WriteLine($"New reference number is: {input}");
                 }
-                
             }
-
-            Console.WriteLine($"New reference number is: {input}");
-
-
+            
         }
-
         static string trimmedRefNumb(string stringValue)
         {
             string trimmedNumb = "";
