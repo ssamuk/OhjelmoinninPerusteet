@@ -24,8 +24,7 @@ namespace Harjoitustyö
                         //CheckRefNumb();
                         if(CheckReferenceNumb(input) == true)
                         {
-                            
-                            Console.WriteLine($"Your input {trimmedRefNumb(input)} is valid reference number.");
+                            Console.WriteLine($"Your input {input} is valid reference number.");
                         }
                         else
                         {
@@ -35,7 +34,7 @@ namespace Harjoitustyö
                         Console.ReadKey();
                         break;
                     case 'N':
-                        
+                        CreateRefNumb();
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
@@ -56,6 +55,29 @@ namespace Harjoitustyö
             } while (userChoise != 'X');
 
         } // End main program
+        static void CreateRefNumb()
+        {
+            Console.WriteLine("Input:");
+            string input = Console.ReadLine();
+            int i = 0;
+            while (CheckReferenceNumb(input) == false)
+            {
+                if (CheckReferenceNumb(input + i) == false)
+                {
+                    i++;
+                }
+                else
+                {
+                    input += i;
+                }
+                
+            }
+
+            Console.WriteLine($"New reference number is: {input}");
+
+
+        }
+
         static string trimmedRefNumb(string stringValue)
         {
             string trimmedNumb = "";
@@ -65,14 +87,13 @@ namespace Harjoitustyö
 
             if(stringValue.Length > 5)
             {
-                trimmedNumb.Insert(4, " ");
+                
             }
             else if(stringValue.Length > 10)
             {
-                trimmedNumb.Insert(4, " ");
-                trimmedNumb.Insert(10, " ");
+                
             }
-            return trimmedNumb;
+            return new string(array1);
         }
         static char UserInterface()
         {
