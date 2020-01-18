@@ -76,27 +76,25 @@ namespace Harjoitustyö
             string baseNumb = baseNumbValue;
             for (int i2 = 0; i2 < countValue; i2++)
             {
+                
                 int i = 0;
                 if ((CheckReferenceNumb(baseNumb) == true))
                 {
                     Console.WriteLine($"Your {i2 + 1}. {baseNumb} is reference number");
-                    baseNumb += i;
                     
-
                 }
                 else if (CheckReferenceNumb(baseNumb) == false)
                     while (CheckReferenceNumb(baseNumb) == false)
                     {
                         if (CheckReferenceNumb(baseNumb + i) == false)
                         {
-                            
                             i++;
                         }
                         else
                         {
                             baseNumb += i;
                             Console.WriteLine($"Your {i2 + 1}. {baseNumb} is reference number");
-                            baseNumb += i;
+                            i++;
                         }
                     }
             }
