@@ -8,8 +8,9 @@ namespace Harjoitustyö
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
+            //string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
 
+            //Here is userinterface to simplify use of program
             char userChoise;
             do
             {
@@ -59,20 +60,46 @@ namespace Harjoitustyö
             Console.WriteLine("Choose what to do: ");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
-
         static void CheckRefNumb()
         {
-            char valMark;
+            int summary = 0;
+            char lastNumb;              //this is the last number of userinput which we compare to valmark to check if
+            char valMark;               //userinput is valid referencenumber
             int numbLength = 0;
             Console.WriteLine("Please insert reference number to check it: ");
             //int userInput = int.Parse(Console.ReadLine());
             string userInput = Console.ReadLine();
             Console.WriteLine(userInput);
             numbLength = userInput.Length;
-            valMark = userInput[numbLength - 1];
+            lastNumb = userInput[numbLength - 1];
             userInput = userInput.Remove(numbLength - 1,1);
-            Console.WriteLine(valMark);
+            Console.WriteLine(lastNumb); // these 2 writeline check if program works to this point
             Console.WriteLine(userInput);
+
+
+            for(int i = userInput.Length-1; i < userInput.Length - 1; i--)
+            {
+                int n = 3;
+                if(n == 3)
+                {
+                    summary = summary + userInput[i];
+                    n--;
+                }
+                else if( n == 2)
+                {
+                    summary = summary + userInput[i];
+                    n--;
+                }
+                else if(n == 1)
+                {
+                    summary = summary + userInput[i];
+                    n = 3;
+                }
+
+            }
+            Console.WriteLine();
+
+
 
 
         }
