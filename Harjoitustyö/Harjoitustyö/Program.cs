@@ -18,12 +18,17 @@ namespace Harjoitustyö
                 switch (userChoise)
                 {
                     case 'C':
-                        
+                        CheckRefNumb();
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
                     case 'N':
                         
+                        Console.WriteLine("Press any key to continue!");
+                        Console.ReadKey();
+                        break;
+                    case 'M':
+
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
