@@ -62,10 +62,17 @@ namespace Harjoitustyö
 
         static void CheckRefNumb()
         {
+            char valMark;
+            int numbLength = 0;
             Console.WriteLine("Please insert reference number to check it: ");
-            int userInput = int.Parse(Console.ReadLine());
-
-
+            //int userInput = int.Parse(Console.ReadLine());
+            string userInput = Console.ReadLine();
+            Console.WriteLine(userInput);
+            numbLength = userInput.Length;
+            valMark = userInput[numbLength - 1];
+            userInput = userInput.Remove(numbLength - 1,1);
+            Console.WriteLine(valMark);
+            Console.WriteLine(userInput);
 
 
         }
