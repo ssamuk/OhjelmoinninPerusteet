@@ -69,7 +69,7 @@ namespace Harjoitustyö
             {
                 CreateRefNumb();
             }
-            
+
         }
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
@@ -80,7 +80,8 @@ namespace Harjoitustyö
                 int i = 0;
                 if ((CheckReferenceNumb(baseNumb) == true))
                 {
-                    Console.WriteLine($"Your {i2 + 1}. {baseNumb} is reference number");
+                    Console.WriteLine($"Your {i2 + 1}. {baseNumb}{i} is reference number");
+                    i++;
                     
                 }
                 else if (CheckReferenceNumb(baseNumb) == false)
@@ -92,9 +93,9 @@ namespace Harjoitustyö
                         }
                         else
                         {
-                            baseNumb += i;
-                            Console.WriteLine($"Your {i2 + 1}. {baseNumb} is reference number");
+                            Console.WriteLine($"Your {i2 + 1}. {baseNumb}{i} is reference number");
                             i++;
+                            
                         }
                     }
             }
@@ -149,6 +150,7 @@ namespace Harjoitustyö
             Console.WriteLine("[C] Check reference number.");
             Console.WriteLine("[N] Create new reference number.");
             Console.WriteLine("[X] Close program.");
+            Console.WriteLine("[M] To create many reference number.");
             Console.WriteLine("Choose what to do: ");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
@@ -197,6 +199,7 @@ namespace Harjoitustyö
             }
         }
         static bool CheckReferenceNumb(string inputValue)
+
         {
             
             int summary = 0;
@@ -208,9 +211,9 @@ namespace Harjoitustyö
 
 
             int n = 3;
-            for (int i = inputValue.Length - 1; i >= 0; i--)  //This loop sums userinput numbers
-            {                                               //from last to first by 731 rule without 
-                                                            //original userinput last number
+            for (int i = inputValue.Length - 1; i >= 0; i--)    //This loop sums userinput numbers
+            {                                                   //from last to first by 731 rule without 
+                                                                //original userinput last number
                 if (n == 3)
                 {
                     summary = summary + int.Parse(inputValue[i].ToString()) * 7;
