@@ -148,23 +148,6 @@ namespace Harjoitustyö
             }
             
         }
-        static string trimmedRefNumb(string stringValue)
-        {
-            string trimmedNumb = "";
-            char[] array1 = stringValue.ToCharArray();
-            Array.Reverse(array1);
-            trimmedNumb = array1.ToString();
-
-            if(stringValue.Length > 5)
-            {
-                
-            }
-            else if(stringValue.Length > 10)
-            {
-                
-            }
-            return new string(array1);
-        }
         static char UserInterface()
         {
             Console.WriteLine("-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
@@ -176,50 +159,6 @@ namespace Harjoitustyö
             Console.WriteLine("[0] Close program.");
             Console.WriteLine("Choose what to do: ");
             return char.ToUpper(Console.ReadKey().KeyChar);
-        }
-        static void CheckRefNumb()
-        {
-            Console.WriteLine("Please insert reference number to check it: ");
-            string userInput = Console.ReadLine();
-            int summary = 0;
-            char lastNumb;              //this is the last number of userinput which we compare to valmark to check if
-            char valMark;               //userinput is valid referencenumber
-            int numbLength = 0;
-            numbLength = userInput.Length;
-            lastNumb = userInput[numbLength - 1];
-            userInput = userInput.Remove(numbLength - 1,1);
-
-
-            int n = 3;
-            for (int i = userInput.Length -1; i >= 0; i--)  //This loop sums userinput numbers
-            {                                               //from last to first by 731 rule without 
-                                                            //original userinput last number
-                if(n == 3)
-                {
-                    summary = summary + int.Parse(userInput[i].ToString()) * 7;
-                    n--;
-                }
-                else if( n == 2)
-                {
-                    summary = summary + int.Parse(userInput[i].ToString()) * 3;
-                    n--;
-                }
-                else if(n == 1)
-                {
-                    summary = summary + int.Parse(userInput[i].ToString()) * 1;
-                    n = 3;
-                }
-            }
-            // Console.WriteLine(summary); this line was to check if summary is right
-            int numbValidator = summary + int.Parse(lastNumb.ToString());
-            if (numbValidator % 10 == 0)
-            {
-                Console.WriteLine($"Your input {userInput}{lastNumb} is correct ref numb");
-            }
-            else
-            {
-                Console.WriteLine("Wrong");
-            }
         }
         static bool CheckReferenceNumb(string inputValue)
 
