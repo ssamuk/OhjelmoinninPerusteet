@@ -8,6 +8,7 @@ namespace Harjoitustyö
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+            string input = string.Empty;
             //string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
 
             //Here is userinterface to simplify use of program
@@ -18,27 +19,25 @@ namespace Harjoitustyö
                 userChoise = UserInterface(); 
                 switch (userChoise)
                 {
-                    case 'C':
-                        Console.WriteLine("Input:");
-                        string input = Console.ReadLine();
-                        //CheckRefNumb();
-                        if(CheckReferenceNumb(input) == true)
+                    case '1':
+                        input = InputValue(input);
+                        if (CheckReferenceNumb(input) == true && isNumb(input) == true && isNumb(input) == true)
                         {
                             Console.WriteLine($"Your input {input} is valid reference number.");
                         }
                         else
                         {
-                            Console.WriteLine("wrong");
+                            Console.WriteLine("Invalid ref number");
                         }
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
-                    case 'N':
+                    case '2':
                         CreateRefNumb();
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
-                    case 'M':
+                    case '3':
                         Console.WriteLine("How many: ");
                         int count = int.Parse(Console.ReadLine());
                         Console.WriteLine("Base numb?");
@@ -47,7 +46,7 @@ namespace Harjoitustyö
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
-                    case 'X':
+                    case '0':
                         break;
 
                     default:
@@ -164,10 +163,10 @@ namespace Harjoitustyö
             Console.WriteLine("-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
                 " them in 'Referencenumber.txt' file.\n\n-----\n ");
             Console.WriteLine("---Reference number interface---.");
-            Console.WriteLine("[C] Check reference number.");
-            Console.WriteLine("[N] Create new reference number.");
-            Console.WriteLine("[X] Close program.");
-            Console.WriteLine("[M] To create many reference number.");
+            Console.WriteLine("[1] Check reference number.");
+            Console.WriteLine("[2] Create new reference number.");
+            Console.WriteLine("[3] Create many ref numb.");
+            Console.WriteLine("[0] Close program.");
             Console.WriteLine("Choose what to do: ");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
