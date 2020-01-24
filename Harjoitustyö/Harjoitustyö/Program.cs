@@ -73,31 +73,30 @@ namespace Harjoitustyö
         }
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
-            string baseNumb = baseNumbValue;
+            string baseNumb = baseNumbValue + 0;
+            int baseNumbInt;
+            if (!Int32.TryParse(baseNumb, out baseNumbInt))
+            {
+                baseNumbInt = -1;
+            }
             for (int i2 = 0; i2 < countValue; i2++)
             {
                 
-                int i = 0;
+                
                 if ((CheckReferenceNumb(baseNumb) == true))
                 {
-                    Console.WriteLine($"Your {i2 + 1}. {baseNumb}{i} is reference number");
-                    i++;
+                    Console.WriteLine($"Your {i2 + 1}. {baseNumbInt} is reference number");
+                    baseNumbInt++;
+                    baseNumb = Convert.ToString(baseNumbInt);
                     
                 }
-                else if (CheckReferenceNumb(baseNumb) == false)
-                    while (CheckReferenceNumb(baseNumb) == false)
-                    {
-                        if (CheckReferenceNumb(baseNumb + i) == false)
-                        {
-                            i++;
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Your {i2 + 1}. {baseNumb}{i} is reference number");
-                            i++;
-                            
-                        }
-                    }
+                else
+                {
+                    baseNumbInt++;
+                    baseNumb = Convert.ToString(baseNumbInt);
+                    i2--;
+                }
+                    
             }
         }
 
