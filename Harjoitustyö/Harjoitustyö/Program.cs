@@ -21,7 +21,7 @@ namespace Harjoitustyö
                 {
                     case '1':
                         input = InputValue(input);
-                        if (CheckReferenceNumb(input) == true && isNumb(input) == true && isNumb(input) == true)
+                        if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input) == true)
                         {
                             Console.WriteLine($"Your input {input} is valid reference number.");
                         }
@@ -33,7 +33,15 @@ namespace Harjoitustyö
                         Console.ReadKey();
                         break;
                     case '2':
-                        CreateRefNumb();
+                        input = InputValue(input);
+                        if(isNumb(input) == true && validLength(input) == true)
+                        {
+                            CreateRefNumb(input);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input");
+                        }
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
@@ -117,12 +125,11 @@ namespace Harjoitustyö
                     
             }
         }
-        static void CreateRefNumb()
+        static void CreateRefNumb(string input)
         {
-            Console.WriteLine("Input:");
-            string input = Console.ReadLine();
+            
             int i = 0;
-            if((CheckReferenceNumb(input) == true))
+            if(CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input) == true)
             {
                 Console.WriteLine($"Your input {input} is allready valid reference number");
 
