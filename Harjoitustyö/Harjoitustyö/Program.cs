@@ -58,19 +58,6 @@ namespace Harjoitustyö
             } while (userChoise != 'X');
 
         } // End main program
-        static void CreateManyRefNumb()
-        {
-            Console.WriteLine("How many reference number you want to create? Please input: ");
-            int numbCount = int.Parse(Console.ReadLine());
-            Console.WriteLine("And what is base ref number?");
-            string baseNumb = "";
-            string refNumb = "";
-            for (int i = 0; i < numbCount; i++)
-            {
-                CreateRefNumb();
-            }
-
-        }
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
             string baseNumb = baseNumbValue + 0;
