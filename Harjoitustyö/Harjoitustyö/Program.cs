@@ -50,7 +50,14 @@ namespace Harjoitustyö
                         int count = int.Parse(Console.ReadLine());
                         Console.WriteLine("Base numb?");
                         string baseNumb = Console.ReadLine();
-                        CreateManyRefNumb(baseNumb, count);
+                        if (isNumb(baseNumb) == true && validLength(baseNumb) == true)
+                        {
+                            CreateManyRefNumb(baseNumb, count);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Something wrong with your baseNumb?");
+                        }
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
                         break;
