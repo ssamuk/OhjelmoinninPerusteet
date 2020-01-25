@@ -20,21 +20,29 @@ namespace Harjoitustyö
                 switch (userChoise)
                 {
                     case '1':
-                        input = InputValue(input);
-                        if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input) == true)
+                        try
                         {
-                            Console.WriteLine($"Your input {input} is valid reference number.");
+                            input = InputValue(input,4,20);
+                            if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4,20) == true)
+                            {
+                                Console.WriteLine($"Your input {input} is valid reference number.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid ref number");
+                            }
+                            Console.WriteLine("Press any key to continue!");
+                            Console.ReadKey();
                         }
-                        else
+                        catch
                         {
-                            Console.WriteLine("Invalid ref number");
+                            Console.WriteLine($"wrong input, click anything to continue!");
+                            Console.ReadLine();
                         }
-                        Console.WriteLine("Press any key to continue!");
-                        Console.ReadKey();
                         break;
                     case '2':
-                        input = InputValue(input);
-                        if(isNumb(input) == true && validLength(input) == true)
+                        input = InputValue(input,3,19);
+                        if(isNumb(input) == true && validLength(input, 3,19) == true)
                         {
                             CreateRefNumb(input);
                         }
@@ -50,7 +58,7 @@ namespace Harjoitustyö
                         int count = int.Parse(Console.ReadLine());
                         Console.WriteLine("Base numb?");
                         string baseNumb = Console.ReadLine();
-                        if (isNumb(baseNumb) == true && validLength(baseNumb) == true)
+                        if (isNumb(baseNumb) == true && validLength(baseNumb, 3,19) == true)
                         {
                             CreateManyRefNumb(baseNumb, count);
                         }
@@ -60,6 +68,12 @@ namespace Harjoitustyö
                         }
                         Console.WriteLine("Press any key to continue!");
                         Console.ReadKey();
+                        break;
+                    case '4':
+                        Console.WriteLine();
+                        ReadFile(@"Referencenumber.txt");
+                        Console.WriteLine("Press anything to continue!");
+                        Console.ReadLine();
                         break;
                     case '0':
                         break;
@@ -72,18 +86,18 @@ namespace Harjoitustyö
             } while (userChoise != 'X');
 
         } // End main program
-        static string InputValue(string inputValue)
+        static string InputValue(string inputValue, int minValue, int maxValue)
         {
-            Console.WriteLine("Input may only be numbers and it must be between numbers 3 to 19");
+            Console.WriteLine($"Input may only be numbers and it must be between numbers {minValue} to {maxValue}");
             Console.WriteLine("Input: ");
             string input = Console.ReadLine();
             input = input.Replace(" ", "");
             input = input.Replace(".", "");
             return input;
         }
-        static bool validLength(string input)
+        static bool validLength(string input, int minValue, int maxValue)
         {
-            if (input.Length < 3 || input.Length > 19)
+            if (input.Length < minValue || input.Length > maxValue)
             {
                 return false;
             }
@@ -138,13 +152,14 @@ namespace Harjoitustyö
         }
         static void CreateRefNumb(string input)
         {
-            
             int i = 0;
-            if(CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input) == true)
+            if(CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input,3,19) == true)
             {
-                Console.WriteLine($"Your input {input} is allready valid reference number");
+                Console.WriteLine($"New reference number is: {input+i}");
+                WriteToFile(@"Referencenumber.txt", input+i);
 
-            }else if (CheckReferenceNumb(input) == false)
+            }
+            else if (CheckReferenceNumb(input) == false)
                 while (CheckReferenceNumb(input) == false)
             {
                 if (CheckReferenceNumb(input + i) == false)
@@ -155,6 +170,7 @@ namespace Harjoitustyö
                 {
                     input += i;
                     Console.WriteLine($"New reference number is: {input}");
+                    WriteToFile(@"Referencenumber.txt", input);
                 }
             }
             
@@ -167,6 +183,7 @@ namespace Harjoitustyö
             Console.WriteLine("[1] Check reference number.");
             Console.WriteLine("[2] Create new reference number.");
             Console.WriteLine("[3] Create many ref numb.");
+            Console.WriteLine("[4] Read saved ref numbers.");
             Console.WriteLine("[0] Close program.");
             Console.WriteLine("Choose what to do: ");
             return char.ToUpper(Console.ReadKey().KeyChar);
@@ -217,7 +234,6 @@ namespace Harjoitustyö
         static void WriteToFile(string path, string inputValue)
         {
             using StreamWriter sw = new StreamWriter(path, true);
-            //using StreamWriter sw = File.AppendText(path, inputValue);
             sw.WriteLine(inputValue);
         }
         static void ReadFile(string path)
@@ -231,12 +247,6 @@ namespace Harjoitustyö
                 }
             }
         }
-
-
-
-
-
-
 
     }
 }
