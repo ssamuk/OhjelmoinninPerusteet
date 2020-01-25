@@ -146,7 +146,7 @@ namespace Harjoitustyö
                     baseNumbInt++;
                     baseNumb = Convert.ToString(baseNumbInt);
                     i2--;
-                }
+                } 
                     
             }
         }
@@ -155,7 +155,7 @@ namespace Harjoitustyö
             int i = 0;
             if(CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input,3,19) == true)
             {
-                Console.WriteLine($"New reference number is: {input+i}");
+                Console.WriteLine($"New reference number is: {input}");
                 WriteToFile(@"Referencenumber.txt", input+i);
 
             }
