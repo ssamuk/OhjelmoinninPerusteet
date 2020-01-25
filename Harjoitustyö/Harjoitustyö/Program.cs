@@ -9,7 +9,7 @@ namespace Harjoitustyö
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             string input = string.Empty;
-            string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
+            
 
             //Here is userinterface to simplify use of program
             char userChoise;
@@ -77,6 +77,8 @@ namespace Harjoitustyö
             Console.WriteLine("Input may only be numbers and it must be between numbers 3 to 19");
             Console.WriteLine("Input: ");
             string input = Console.ReadLine();
+            input = input.Replace(" ", "");
+            input = input.Replace(".", "");
             return input;
         }
         static bool validLength(string input)
@@ -106,6 +108,7 @@ namespace Harjoitustyö
         }
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
+            string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
             string baseNumb = baseNumbValue + 0;
             int baseNumbInt;
             if (!Int32.TryParse(baseNumb, out baseNumbInt))
@@ -119,6 +122,7 @@ namespace Harjoitustyö
                 if ((CheckReferenceNumb(baseNumb) == true))
                 {
                     Console.WriteLine($"Your {i2 + 1}. {baseNumbInt} is reference number");
+                    WriteToFile(path, baseNumb);
                     baseNumbInt++;
                     baseNumb = Convert.ToString(baseNumbInt);
                     
@@ -210,16 +214,11 @@ namespace Harjoitustyö
                 return false;
             }
         }
-        static void WriteToFile(string path)
+        static void WriteToFile(string path, string inputValue)
         {
-            using (StreamWriter sw = File.AppendText(path))
-            {
-                DateTime currentTime = DateTime.Now;
-
-                sw.WriteLine($"---{currentTime}---");
-                
-
-            }
+            using StreamWriter sw = new StreamWriter(path, true);
+            //using StreamWriter sw = File.AppendText(path, inputValue);
+            sw.WriteLine(inputValue);
         }
         static void ReadFile(string path)
         {
