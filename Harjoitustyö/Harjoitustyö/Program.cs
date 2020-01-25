@@ -9,7 +9,7 @@ namespace Harjoitustyö
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             string input = string.Empty;
-            //string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
+            string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
 
             //Here is userinterface to simplify use of program
             char userChoise;
@@ -210,9 +210,7 @@ namespace Harjoitustyö
                 return false;
             }
         }
-
-
-        /*static void WriteToFile(string path)
+        static void WriteToFile(string path)
         {
             using (StreamWriter sw = File.AppendText(path))
             {
@@ -222,8 +220,8 @@ namespace Harjoitustyö
                 
 
             }
-        }*/
-        /*static void ReadFile(string path)
+        }
+        static void ReadFile(string path)
         {
             using (StreamReader sr = File.OpenText(path))
             {
@@ -233,7 +231,14 @@ namespace Harjoitustyö
                     Console.WriteLine(s);
                 }
             }
-        }*/
+        }
+
+
+
+
+
+
+
     }
 }
 /*
