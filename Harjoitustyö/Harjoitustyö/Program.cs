@@ -22,7 +22,7 @@ namespace Harjoitustyö
                     case '1':
                         try
                         {
-                            input = InputValue(input,4,20);
+                            input = InputValue(input,4,200);
                             if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4,20) == true)
                             {
                                 
