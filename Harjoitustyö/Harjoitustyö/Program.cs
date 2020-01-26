@@ -45,7 +45,7 @@ namespace Harjoitustyö
                         input = InputValue(input,3,19);
                         if(isNumb(input) == true && validLength(input, 3,19) == true)
                         {
-                            CreateRefNumb(input);
+                            CreateManyRefNumb(input, 1);
                         }
                         else
                         {
@@ -127,17 +127,17 @@ namespace Harjoitustyö
         }
         static bool isNumb(string inputValue)
         {
-            string input = inputValue;
-            int inputInt;
-            if (!int.TryParse(input, out inputInt))
-            {
-
-                return false;
+            int n = 0;
+            for (int i = 0; i < inputValue.Length; i++)
+            { 
+                bool tryParse = int.TryParse(inputValue[i].ToString(), out _);
+                if (tryParse == false) 
+                    n++;
             }
-            else
-            {
+            if (n == 0) 
                 return true;
-            }
+            else
+                return false;
         }
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
