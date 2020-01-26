@@ -25,7 +25,8 @@ namespace Harjoitustyö
                             input = InputValue(input,4,20);
                             if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4,20) == true)
                             {
-                                Console.WriteLine($"Your input {input} is valid reference number.");
+                                
+                                Console.WriteLine($"Your input {AddSpaces(input)} is valid reference number.");
                             }
                             else
                             {
@@ -86,6 +87,24 @@ namespace Harjoitustyö
             } while (userChoise != 'X');
 
         } // End main program
+        public static string ReverseString(string inputValue)
+        {
+            char[] arr = inputValue.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
+        }
+        static string AddSpaces(string inputValue)
+        {
+            String input = ReverseString(inputValue);
+
+            for (int i = 5; i <= input.Length; i += 5)
+            {
+                input = input.Insert(i, " ");
+                i++;
+            }
+            
+            return ReverseString(input);
+        }
         static string InputValue(string inputValue, int minValue, int maxValue)
         {
             Console.WriteLine($"Input may only be numbers and it must be between numbers {minValue} to {maxValue}");
@@ -159,10 +178,10 @@ namespace Harjoitustyö
                 WriteToFile(@"Referencenumber.txt", input+i);
 
             }
-            else if (CheckReferenceNumb(input) == false && validLength(input,4,20) == false)
+            else if (CheckReferenceNumb(input) == false)
                 while (CheckReferenceNumb(input) == false)
             {
-                if (CheckReferenceNumb(input + i) == false && validLength(input, 4, 20) == false)
+                if (CheckReferenceNumb(input + i) == false)
                 {
                     i++;
                 }
