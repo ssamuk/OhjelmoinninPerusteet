@@ -153,16 +153,16 @@ namespace Harjoitustyö
         static void CreateRefNumb(string input)
         {
             int i = 0;
-            if(CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input,3,19) == true)
+            if(CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input,4,20) == true)
             {
                 Console.WriteLine($"New reference number is: {input}");
                 WriteToFile(@"Referencenumber.txt", input+i);
 
             }
-            else if (CheckReferenceNumb(input) == false)
+            else if (CheckReferenceNumb(input) == false && validLength(input,4,20) == false)
                 while (CheckReferenceNumb(input) == false)
             {
-                if (CheckReferenceNumb(input + i) == false)
+                if (CheckReferenceNumb(input + i) == false && validLength(input, 4, 20) == false)
                 {
                     i++;
                 }
