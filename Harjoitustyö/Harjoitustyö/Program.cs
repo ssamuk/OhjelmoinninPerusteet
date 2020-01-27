@@ -139,31 +139,28 @@ namespace Harjoitustyö
             else
                 return false;
         }
+        
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
+            int i = 0;
             string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
-            string baseNumb = baseNumbValue + 0;
-            int baseNumbInt;
-            if (!Int32.TryParse(baseNumb, out baseNumbInt))
-            {
-                baseNumbInt = -1;
-            }
+            string baseNumb = baseNumbValue;
+            
+            
             for (int i2 = 0; i2 < countValue; i2++)
             {
                 
                 
-                if ((CheckReferenceNumb(baseNumb) == true))
+                if ((CheckReferenceNumb(baseNumb+i) == true))
                 {
-                    Console.WriteLine($"Your {i2 + 1}. {baseNumbInt} is reference number");
-                    WriteToFile(path, baseNumb);
-                    baseNumbInt++;
-                    baseNumb = Convert.ToString(baseNumbInt);
+                    Console.WriteLine($"{baseNumb}{i} is a new reference number");
+                    WriteToFile(path, baseNumb+i);
+                    i++;
                     
                 }
                 else
                 {
-                    baseNumbInt++;
-                    baseNumb = Convert.ToString(baseNumbInt);
+                    i++;
                     i2--;
                 } 
                     
