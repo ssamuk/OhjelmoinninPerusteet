@@ -22,7 +22,7 @@ namespace Harjoitustyö
                     case '1':
                         try
                         {
-                            input = InputValue(input,4,200);
+                            input = InputValue(input,4,20);
                             if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4,20) == true)
                             {
                                 
@@ -266,19 +266,5 @@ namespace Harjoitustyö
                 }
             }
         }
-
     }
 }
-/*
-5
-Halutun määrän kotimaisten viitenumeroiden luonti toimii oikein ja niiden tallennus tiedostoon onnistuu.
-Sovelluksessa on huomioitu virheiden käsittely.
-
-3
-Kotimaisen viitenumeron tarkastusalgoritmi rakennettu modulaariseksi.
-Toimiva algoritmi kotimaisen viitenumeron luomiseen.
-
-1
-Sovelluksen käyttökokemus ja käytettävyys helppoa.
-Kotimaisen viitenumeron tarkastus toimii oikein.
-*/
