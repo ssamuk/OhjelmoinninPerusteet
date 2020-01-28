@@ -23,7 +23,7 @@ namespace Harjoitustyö
                         try
                         {
                             input = InputValue(input,4,20);
-                            if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4,20) == true)
+                            if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4,20) == true && firstNumbZero(input) == true)
                             {
                                 
                                 Console.WriteLine($"Your input {AddSpaces(input)} is valid reference number.");
@@ -42,39 +42,63 @@ namespace Harjoitustyö
                         }
                         break;
                     case '2':
-                        input = InputValue(input,3,19);
-                        if(isNumb(input) == true && validLength(input, 3,19) == true)
+                        try
                         {
-                            CreateManyRefNumb(input, 1);
+                            input = InputValue(input, 3, 19);
+                            if (isNumb(input) == true && validLength(input, 3, 19) == true && firstNumbZero(input) == true)
+                            {
+                                CreateManyRefNumb(input, 1);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input");
+                            }
+                            Console.WriteLine("Press any key to continue!");
+                            Console.ReadKey();
                         }
-                        else
+                        catch
                         {
-                            Console.WriteLine("Invalid input");
+                            Console.WriteLine($"wrong input, click anything to continue!");
+                            Console.ReadLine();
                         }
-                        Console.WriteLine("Press any key to continue!");
-                        Console.ReadKey();
                         break;
                     case '3':
-                        Console.WriteLine("How many: ");
-                        int count = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Base numb?");
-                        string baseNumb = Console.ReadLine();
-                        if (isNumb(baseNumb) == true && validLength(baseNumb, 3,19) == true)
+                        try
                         {
-                            CreateManyRefNumb(baseNumb, count);
+                            Console.WriteLine("How many: ");
+                            int count = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Base numb?");
+                            string baseNumb = Console.ReadLine();
+                            if (isNumb(baseNumb) == true && validLength(baseNumb, 3, 19) == true && firstNumbZero(input) == true)
+                            {
+                                CreateManyRefNumb(baseNumb, count);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Something wrong with your baseNumb?");
+                            }
+                            Console.WriteLine("Press any key to continue!");
+                            Console.ReadKey();
                         }
-                        else
+                        catch
                         {
-                            Console.WriteLine("Something wrong with your baseNumb?");
+                            Console.WriteLine($"wrong input, click anything to continue!");
+                            Console.ReadLine();
                         }
-                        Console.WriteLine("Press any key to continue!");
-                        Console.ReadKey();
                         break;
                     case '4':
-                        Console.WriteLine();
-                        ReadFile(@"Referencenumber.txt");
-                        Console.WriteLine("Press anything to continue!");
-                        Console.ReadLine();
+                        try
+                        {
+                            Console.WriteLine();
+                            ReadFile(@"Referencenumber.txt");
+                            Console.WriteLine("Press anything to continue!");
+                            Console.ReadLine();
+                        }
+                        catch
+                        {
+                            Console.WriteLine($"I think folder is empty or monkeys have destroyed your ref numbs, click anything to continue!");
+                            Console.ReadLine();
+                        }
                         break;
                     case '0':
                         break;
@@ -105,9 +129,20 @@ namespace Harjoitustyö
             
             return ReverseString(input);
         }
+        static bool firstNumbZero(string inputValue)
+        {
+            if (inputValue[0].ToString() != "0")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         static string InputValue(string inputValue, int minValue, int maxValue)
         {
-            Console.WriteLine($"Input may only be numbers and it must be between numbers {minValue} to {maxValue}");
+            Console.WriteLine($"\nInput may only be numbers and it must be between numbers {minValue} to {maxValue}");
             Console.WriteLine("Input: ");
             string input = Console.ReadLine();
             input = input.Replace(" ", "");
@@ -139,7 +174,6 @@ namespace Harjoitustyö
             else
                 return false;
         }
-        
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
             int i = 0;
