@@ -108,7 +108,7 @@ namespace Harjoitustyö
                         Console.ReadLine();
                         break;
                 }
-            } while (userChoise != 'X');
+            } while (userChoise != '0');
 
         } // End main program
 
