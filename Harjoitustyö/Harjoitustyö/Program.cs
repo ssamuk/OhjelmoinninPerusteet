@@ -111,12 +111,16 @@ namespace Harjoitustyö
             } while (userChoise != 'X');
 
         } // End main program
+
+        //This function is used in function which adds spaces. Its easier to add spaces to reversed string
+        //and then reverse it back. Simple.
         public static string ReverseString(string inputValue)
         {
             char[] arr = inputValue.ToCharArray();
             Array.Reverse(arr);
             return new string(arr);
         }
+        //This function adds space from last to first between every five digits
         static string AddSpaces(string inputValue)
         {
             String input = ReverseString(inputValue);
@@ -129,6 +133,7 @@ namespace Harjoitustyö
             
             return ReverseString(input);
         }
+        //This function checks first number and if its zero, function returns false. Easy check.
         static bool firstNumbZero(string inputValue)
         {
             if (inputValue[0].ToString() != "0")
@@ -140,6 +145,8 @@ namespace Harjoitustyö
                 return false;
             }
         }
+        //In this function we determine our input number and make sure there is no extradots or spaces
+        //We also use min- and maxValue to tell right length
         static string InputValue(string inputValue, int minValue, int maxValue)
         {
             Console.WriteLine($"\nInput may only be numbers and it must be between numbers {minValue} to {maxValue}");
@@ -149,6 +156,7 @@ namespace Harjoitustyö
             input = input.Replace(".", "");
             return input;
         }
+        //In last function we told right length, here we check it.
         static bool validLength(string input, int minValue, int maxValue)
         {
             if (input.Length < minValue || input.Length > maxValue)
@@ -160,6 +168,7 @@ namespace Harjoitustyö
                 return true;
             }
         }
+        //Here we check if input is number.
         static bool isNumb(string inputValue)
         {
             int n = 0;
@@ -174,6 +183,9 @@ namespace Harjoitustyö
             else
                 return false;
         }
+        //At first this was created for to create many, but now ill use it also to create one by passing
+        //parameter countValue
+        //So this functions makes countValue times unique reference numbers.
         static void CreateManyRefNumb(string baseNumbValue, int countValue)
         {
             int i = 0;
@@ -200,6 +212,8 @@ namespace Harjoitustyö
                     
             }
         }
+        //I deleted many "original" functions from early build but this i left here to let teacher see some
+        //mid progress thinking
         static void CreateRefNumb(string input)
         {
             int i = 0;
@@ -225,6 +239,7 @@ namespace Harjoitustyö
             }
             
         }
+        //As name sais
         static char UserInterface()
         {
             Console.WriteLine("-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
@@ -238,6 +253,7 @@ namespace Harjoitustyö
             Console.WriteLine("Choose what to do: ");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
+        //Check ref numb by "731"(dont know name of that) rule.
         static bool CheckReferenceNumb(string inputValue)
 
         {
@@ -281,11 +297,15 @@ namespace Harjoitustyö
                 return false;
             }
         }
+        //Saves VALID created ref numbs
         static void WriteToFile(string path, string inputValue)
         {
             using StreamWriter sw = new StreamWriter(path, true);
             sw.WriteLine(inputValue);
         }
+        //Easy bonus, was not in task list but was easy to add so i did.
+        //As name sais, reads file.
+        //Writes to console every single saved reference number 
         static void ReadFile(string path)
         {
             using (StreamReader sr = File.OpenText(path))
